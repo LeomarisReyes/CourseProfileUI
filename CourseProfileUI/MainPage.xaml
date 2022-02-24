@@ -1,0 +1,61 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseProfileUI.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+    <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+        <!-- Main layout-->
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="20,0">
+            <!--Timeline -->
+            <Frame Grid.Row="0" BorderColor="White" VerticalOptions="Start" HeightRequest="160" HasShadow="False" CornerRadius="20" Margin="0,45,0,20" Padding="0" IsClippedToBounds="True">
+                <Image Source="timeline" Aspect="AspectFill"/>
+            </Frame>
+            <!-- Image Profile-->
+            <Frame Grid.Row="1" Margin="0,-90,0,0" BorderColor="White" HorizontalOptions="Center" WidthRequest="110" HeightRequest="{OnPlatform iOS='110', Android='20'}" HasShadow="False" CornerRadius="55" Padding="0" IsClippedToBounds="True">
+                <Image Source="modelprofile" Aspect="AspectFill"/>
+            </Frame>
+            <!-- Profile name & general description-->
+            <Label Grid.Row="2" Text="Angelica Melli" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="22"/>
+
+            <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0">
+                <Button Grid.Column="0" ImageSource="location" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
+                <Label Grid.Column="1" Text=" Venecy, Italy" FontSize="15" TextColor="#9192b7"/>
+                <Button Grid.Column="2" ImageSource="age" Margin="10,0,0,0" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
+                <Label Grid.Column="3" Text=" Age, 26" FontSize="15" TextColor="#9192b7"/>
+                <Button Grid.Column="4" Text="Regular" TextColor="#e29389" FontAttributes="Bold" Margin="5,0,0,0" CornerRadius="10" FontSize="9" WidthRequest="{OnPlatform iOS='50', Android='59'}" HeightRequest="{OnPlatform iOS='21', Android='30'}" BackgroundColor="#fae6e4"/>
+
+            </Grid>
+
+            <Label Grid.Row="4" Text="Angelica's Note" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,40,0,20" FontSize="20"/>
+            <Label Grid.Row="5" TextColor="#8d92b9" HorizontalTextAlignment="Start" FontSize="15" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&#10;&#10;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+
+            <!-- Homework-->
+            <Label Grid.Row="6" Text="Homework" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,30,0,10" FontSize="20"/>
+            <CollectionView Grid.Row="7" HorizontalScrollBarVisibility="Never"
+                            ItemsSource="{Binding homeWorks}" Margin="0,0,-10,0"
+                            HeightRequest="140"
+                            ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout WidthRequest="{OnPlatform iOS='135', Android='160'}" Padding="0,0,15,0">
+                            <Frame CornerRadius="13" HorizontalOptions="Start" BorderColor="#c6c1ea" HasShadow="False">
+                                <Grid RowDefinitions="*,Auto">
+                                    <Image Source="folder" HorizontalOptions="Center" HeightRequest="40" WidthRequest="40" />
+                                    <Label Grid.Row="1" HorizontalOptions="Center" Text="{Binding FileName}" FontSize="11" TextColor="#c6c1ea"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!-- Line & Final buttons-->
+            <BoxView Grid.Row="8" HorizontalOptions="FillAndExpand" HeightRequest="1"  Margin="-20,0,0,20" Color="#eaeaf0"/>
+            <Grid ColumnDefinitions="Auto,*" HorizontalOptions="FillAndExpand" Grid.Row="9" Margin="0,0,0,20">
+                <Button Grid.Column="0" Text="Premium" BackgroundColor="White" ImageSource="medal" WidthRequest="130" CornerRadius="18" FontAttributes="Bold" TextColor="#383b67" BorderColor="Silver" Margin="0,0,10,0" HeightRequest="50" BorderWidth="1"/>
+                <Button Grid.Column="1" Text="Get Detail" CornerRadius="18" TextColor="White" FontAttributes="Bold" BackgroundColor="#383b67" HeightRequest="50" BorderWidth="1"/>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+
+
+</ContentPage>
